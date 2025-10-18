@@ -2,9 +2,9 @@
 Overview
 This code implements a forecasting pipeline for the M5 retail sales dataset using XGBoost, a gradient boosting decision tree algorithm. It processes raw sales, calendar, and price data, engineer features, and trains an incremental XGBoost model on large-scale data using chunked training to manage memory efficiently.
 ________________________________________
-#Data Loading and Memory Optimization
-#•	Files loaded: calendar.csv (calendar features), sell_prices.csv (prices data), and sales_train_evaluation.csv (historical sales).
-#•	The downcast() function converts DataFrame column data types to more memory-efficient ones (e.g., int64 to int32, float64 to float32, objects to category) to reduce RAM usage.
+Data Loading and Memory Optimization
+•	Files loaded: calendar.csv (calendar features), sell_prices.csv (prices data), and sales_train_evaluation.csv (historical sales).
+•	The downcast() function converts DataFrame column data types to more memory-efficient ones (e.g., int64 to int32, float64 to float32, objects to category) to reduce RAM usage.
 
 Feature Engineering
 •	Additional zero sales columns (d_1942 to d_1969) are appended to extend historical sales to future days.
@@ -53,6 +53,7 @@ Key Benefits of This Approach
 •	Incremental training supports datasets too large to fit in memory at once.
 •	Use of XGBoost’s histogram method accelerates training compared to exact greedy methods.
 •	Model explainability via feature importance helps understand key drivers (such as price, events, and calendar features).
+
 
 
 
